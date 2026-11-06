@@ -2,7 +2,7 @@
 // Keep the two original Motion springs; these are not exponential follow constants.
 export const interactionConfig = {
   dotDiameter: 12,
-  ringDiameter: 40,
+  ringDiameter: 48,
   dotHoverScale: 0.5,
   ringHoverScale: 1.5,
   dotSpring: { type: 'spring', stiffness: 500, damping: 28, mass: 0.5 },

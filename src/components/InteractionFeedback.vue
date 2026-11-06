@@ -10,7 +10,6 @@ const ring = ref<HTMLElement>()
 
 const interactiveSelector = 'a[href],button,[role="button"],[role="link"],summary,[tabindex]:not([tabindex="-1"]),[data-cursor-interactive]'
 const nativeSelector = 'input,textarea,select,option,[contenteditable]:not([contenteditable="false"]),[data-native-cursor],iframe,video[controls],audio[controls]'
-const textSelector = 'p,h1,h2,h3,h4,h5,h6,blockquote,label,li,dt,dd,figcaption'
 const brightControlSelector = '.cta-primary,.dialog-close,.s05__cta,.s05__card[data-revealed="true"],.s07__contact-link--telegram,.site-nav__language button[aria-pressed="true"]'
 const navigationKeys = new Set(['Tab', 'Escape', 'Enter', ' ', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown'])
 
@@ -90,7 +89,6 @@ function interactive(target: Element | undefined) {
 function needsNative(target: Element | undefined) {
   if (!target || disabled(target) || target.closest(nativeSelector)) return true
   if (interactive(target)) return false
-  if (target.closest(textSelector) && !target.closest('.site-nav__mobile-step')) return true
   const cursor = getComputedStyle(target).cursor
   return cursor === 'text' || cursor === 'vertical-text' || cursor === 'grab' || cursor === 'grabbing'
     || cursor.endsWith('-resize') || cursor === 'wait' || cursor === 'progress' || cursor === 'crosshair'
@@ -273,23 +271,23 @@ onBeforeUnmount(() => {
 <style>
 /* Keep the native arrow hidden from mount to the first pointer movement. */
 html.ftd-cursor-ready, html.ftd-cursor-ready * { cursor: none !important; }
-html.ftd-cursor-ready :is(input,textarea,[contenteditable]:not([contenteditable="false"]),p,h1,h2,h3,h4,h5,h6,blockquote,label,li,dt,dd,figcaption),
-html.ftd-cursor-ready :is([contenteditable]:not([contenteditable="false"]),p,h1,h2,h3,h4,h5,h6,blockquote,label,li,dt,dd,figcaption) * { cursor: text !important; }
+html.ftd-cursor-ready :is(input,textarea,[contenteditable]:not([contenteditable="false"])),
+html.ftd-cursor-ready :is([contenteditable]:not([contenteditable="false"])) * { cursor: text !important; }
 html.ftd-cursor-ready :is(select,option,[data-native-cursor],iframe,video[controls],audio[controls]) { cursor: auto !important; }
 .ftd-interaction-feedback { display: contents; pointer-events: none; user-select: none; }
 .ftd-interaction-feedback[hidden] { display: none !important; }
 .ftd-tech-crosshair, .ftd-tech-crosshair__center { position: fixed; left: 0; top: 0; z-index: 9999; color: #00e7ef; pointer-events: none; will-change: transform; transition: color .16s ease; }
-.ftd-tech-crosshair { width: 40px; height: 40px; }
+.ftd-tech-crosshair { width: 48px; height: 48px; }
 .ftd-tech-crosshair__center { width: 12px; height: 12px; }
 .ftd-interaction-feedback[data-cursor-theme="bright"] .ftd-tech-crosshair,
 .ftd-interaction-feedback[data-cursor-theme="bright"] .ftd-tech-crosshair__center { color: #020609; }
-.ftd-tech-crosshair__marks { position: absolute; top: 8px; left: 8px; width: 24px; height: 24px; }
-.ftd-tech-crosshair__corner { position: absolute; width: 7px; height: 7px; border-color: currentColor; border-style: solid; border-width: 0; }
-.ftd-tech-crosshair__corner--tl { top: 2px; left: 2px; border-top-width: 1px; border-left-width: 1px; }
-.ftd-tech-crosshair__corner--tr { top: 2px; right: 2px; border-top-width: 1px; border-right-width: 1px; }
-.ftd-tech-crosshair__corner--bl { bottom: 2px; left: 2px; border-bottom-width: 1px; border-left-width: 1px; }
-.ftd-tech-crosshair__corner--br { bottom: 2px; right: 2px; border-bottom-width: 1px; border-right-width: 1px; }
-.ftd-tech-crosshair__dot { position: absolute; top: 4.5px; left: 4.5px; width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
+.ftd-tech-crosshair__marks { position: absolute; top: 6px; left: 6px; width: 36px; height: 36px; }
+.ftd-tech-crosshair__corner { position: absolute; width: 10px; height: 10px; border-color: currentColor; border-style: solid; border-width: 0; }
+.ftd-tech-crosshair__corner--tl { top: 0; left: 0; border-top-width: 1.5px; border-left-width: 1.5px; }
+.ftd-tech-crosshair__corner--tr { top: 0; right: 0; border-top-width: 1.5px; border-right-width: 1.5px; }
+.ftd-tech-crosshair__corner--bl { bottom: 0; left: 0; border-bottom-width: 1.5px; border-left-width: 1.5px; }
+.ftd-tech-crosshair__corner--br { bottom: 0; right: 0; border-bottom-width: 1.5px; border-right-width: 1.5px; }
+.ftd-tech-crosshair__dot { position: absolute; top: 3.5px; left: 3.5px; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
 [data-ftd-touch="pressed"] { filter: brightness(1.1); }
 @media (prefers-reduced-motion: reduce) {
   .ftd-interaction-feedback { display: none !important; }

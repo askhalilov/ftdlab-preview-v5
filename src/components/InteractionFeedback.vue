@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { interactionConfig as config } from '../motion/interactionConfig'
-import { createTechCrosshairMotion } from '../motion/techCrosshairMotion'
+import { createPortfolioCursorMotion } from '../motion/portfolioCursorMotion'
 
 const props = withDefaults(defineProps<{ paused?: boolean }>(), { paused: false })
 const surface = ref<HTMLElement>()
-const crosshair = ref<HTMLElement>()
+const dot = ref<HTMLElement>()
+const ring = ref<HTMLElement>()
 
 const interactiveSelector = 'a[href],button,[role="button"],[role="link"],summary,[tabindex]:not([tabindex="-1"]),[data-cursor-interactive]'
 const nativeSelector = 'input,textarea,select,option,[contenteditable]:not([contenteditable="false"]),[data-native-cursor],iframe,video[controls],audio[controls]'
@@ -18,12 +19,13 @@ let motion: MediaQueryList | undefined
 let observer: MutationObserver | undefined
 let mounted = false
 let visible = false
+let lastHideReason = 'initial'
 let loaderVisible = false
 let mouseDown = false
 let selecting = false
 let keyboardActive = false
 let pointer = 'none'
-let cursorMotion: ReturnType<typeof createTechCrosshairMotion> | undefined
+let cursorMotion: ReturnType<typeof createPortfolioCursorMotion> | undefined
 let touch: { element: HTMLElement; id: number; x: number; y: number; started: number; original: string | null } | undefined
 let touchTimer: ReturnType<typeof setTimeout> | undefined
 
@@ -31,8 +33,13 @@ function attribute(name: string, value: string) {
   surface.value?.setAttribute(`data-cursor-${name}`, value)
 }
 
+function syncNativeCursor() {
+  document.documentElement.classList.toggle('ftd-cursor-ready', Boolean(cursorMotion && capability?.matches && !motion?.matches))
+}
+
 function hide(reason: string) {
   visible = false
+  lastHideReason = reason
   document.documentElement.classList.remove('ftd-cursor-active')
   if (surface.value) surface.value.hidden = true
   attribute('state', 'hidden')
@@ -100,8 +107,9 @@ function show(event: PointerEvent) {
   const hovering = Boolean(interactive(target) || target?.closest('.s05__card'))
   const overConnectNav = target?.closest('.site-nav[data-current-section="section-04"]')
   attribute('theme', target?.closest('.s04') || overConnectNav || target?.closest(brightControlSelector) ? 'bright' : 'dark')
-  try { cursorMotion.update(event.clientX, event.clientY) }
-  catch { cursorMotion.stop(); cursorMotion = undefined; hide('initialization-failed'); return }
+  const initial = visible ? undefined : ['initial', 'viewport', 'loader'].includes(lastHideReason) ? 'origin' : 'snap'
+  try { cursorMotion.update(event.clientX, event.clientY, hovering, initial) }
+  catch { cursorMotion.stop(); cursorMotion = undefined; hide('initialization-failed'); syncNativeCursor(); return }
   visible = true
   if (surface.value) surface.value.hidden = false
   document.documentElement.classList.add('ftd-cursor-active')
@@ -166,7 +174,7 @@ function onBlur() { mouseDown = false; selecting = false; clearTouch(); hide('bl
 function onVisibility() { if (document.hidden) { clearTouch(); hide('hidden') } }
 function onResize() { clearTouch(); hide('resize') }
 function onFullscreen() { clearTouch(); hide('fullscreen') }
-function onCapabilityChange() { clearTouch(); hide(unavailableReason() || 'pointer-change') }
+function onCapabilityChange() { clearTouch(); hide(unavailableReason() || 'pointer-change'); syncNativeCursor() }
 function onKeyboard(event: KeyboardEvent) { if (navigationKeys.has(event.key) || event.key.length === 1) { keyboardActive = true; clearTouch(); hide('keyboard') } }
 function onContextMenu() { mouseDown = false; selecting = false; clearTouch(); hide('native') }
 function onSelectStart() { if (mouseDown) { selecting = true; hide('selection') } }
@@ -184,10 +192,11 @@ watch(() => props.paused, (paused) => { if (mounted && paused) { clearTouch(); h
 
 onMounted(() => {
   mounted = true
-  try { if (crosshair.value) cursorMotion = createTechCrosshairMotion(crosshair.value) }
+  try { if (dot.value && ring.value) cursorMotion = createPortfolioCursorMotion(dot.value, ring.value, active => attribute('loop', active ? 'running' : 'idle')) }
   catch { hide('initialization-failed') }
   capability = matchMedia('(pointer: fine) and (hover: hover)')
   motion = matchMedia('(prefers-reduced-motion: reduce)')
+  syncNativeCursor()
   capability.addEventListener('change', onCapabilityChange)
   motion.addEventListener('change', onCapabilityChange)
   observeLoader()
@@ -217,6 +226,7 @@ onBeforeUnmount(() => {
   mounted = false
   clearTouch()
   hide('unmounted')
+  document.documentElement.classList.remove('ftd-cursor-ready')
   cursorMotion?.destroy()
   cursorMotion = undefined
   observer?.disconnect()
@@ -244,12 +254,16 @@ onBeforeUnmount(() => {
 
 <template>
   <Teleport to="body">
-    <div ref="surface" class="ftd-interaction-feedback" hidden aria-hidden="true" data-cursor-state="hidden" data-cursor-theme="dark" data-cursor-pointer="none" data-cursor-reason="initial">
-      <span ref="crosshair" class="ftd-tech-crosshair">
-        <i class="ftd-tech-crosshair__corner ftd-tech-crosshair__corner--tl" />
-        <i class="ftd-tech-crosshair__corner ftd-tech-crosshair__corner--tr" />
-        <i class="ftd-tech-crosshair__corner ftd-tech-crosshair__corner--bl" />
-        <i class="ftd-tech-crosshair__corner ftd-tech-crosshair__corner--br" />
+    <div ref="surface" class="ftd-interaction-feedback" hidden aria-hidden="true" data-cursor-state="hidden" data-cursor-theme="dark" data-cursor-loop="idle" data-cursor-pointer="none" data-cursor-reason="initial">
+      <span ref="ring" class="ftd-tech-crosshair">
+        <span class="ftd-tech-crosshair__marks">
+          <i class="ftd-tech-crosshair__corner ftd-tech-crosshair__corner--tl" />
+          <i class="ftd-tech-crosshair__corner ftd-tech-crosshair__corner--tr" />
+          <i class="ftd-tech-crosshair__corner ftd-tech-crosshair__corner--bl" />
+          <i class="ftd-tech-crosshair__corner ftd-tech-crosshair__corner--br" />
+        </span>
+      </span>
+      <span ref="dot" class="ftd-tech-crosshair__center">
         <i class="ftd-tech-crosshair__dot" />
       </span>
     </div>
@@ -257,24 +271,25 @@ onBeforeUnmount(() => {
 </template>
 
 <style>
-/* This component changes only its own overlay and a temporary pressed target. */
-html.ftd-cursor-active, html.ftd-cursor-active * { cursor: none !important; }
-html.ftd-cursor-active :is(input,textarea,select,option,[contenteditable]:not([contenteditable="false"]),[data-native-cursor],iframe,video[controls],audio[controls]),
-html.ftd-cursor-active :is([contenteditable]:not([contenteditable="false"]),[data-native-cursor]) * { cursor: auto !important; }
+/* Keep the native arrow hidden from mount to the first pointer movement. */
+html.ftd-cursor-ready, html.ftd-cursor-ready * { cursor: none !important; }
+html.ftd-cursor-ready :is(input,textarea,[contenteditable]:not([contenteditable="false"]),p,h1,h2,h3,h4,h5,h6,blockquote,label,li,dt,dd,figcaption),
+html.ftd-cursor-ready :is([contenteditable]:not([contenteditable="false"]),p,h1,h2,h3,h4,h5,h6,blockquote,label,li,dt,dd,figcaption) * { cursor: text !important; }
+html.ftd-cursor-ready :is(select,option,[data-native-cursor],iframe,video[controls],audio[controls]) { cursor: auto !important; }
 .ftd-interaction-feedback { display: contents; pointer-events: none; user-select: none; }
 .ftd-interaction-feedback[hidden] { display: none !important; }
-.ftd-tech-crosshair { position: fixed; left: 0; top: 0; z-index: 9999; width: 24px; height: 24px; color: #00e7ef; pointer-events: none; will-change: transform; transition: color .16s ease; }
-.ftd-interaction-feedback[data-cursor-theme="bright"] .ftd-tech-crosshair { color: #020609; }
-.ftd-tech-crosshair__corner { position: absolute; width: 7px; height: 7px; border-color: currentColor; border-style: solid; border-width: 0; transition: transform .12s ease-out; }
+.ftd-tech-crosshair, .ftd-tech-crosshair__center { position: fixed; left: 0; top: 0; z-index: 9999; color: #00e7ef; pointer-events: none; will-change: transform; transition: color .16s ease; }
+.ftd-tech-crosshair { width: 40px; height: 40px; }
+.ftd-tech-crosshair__center { width: 12px; height: 12px; }
+.ftd-interaction-feedback[data-cursor-theme="bright"] .ftd-tech-crosshair,
+.ftd-interaction-feedback[data-cursor-theme="bright"] .ftd-tech-crosshair__center { color: #020609; }
+.ftd-tech-crosshair__marks { position: absolute; top: 8px; left: 8px; width: 24px; height: 24px; }
+.ftd-tech-crosshair__corner { position: absolute; width: 7px; height: 7px; border-color: currentColor; border-style: solid; border-width: 0; }
 .ftd-tech-crosshair__corner--tl { top: 2px; left: 2px; border-top-width: 1px; border-left-width: 1px; }
 .ftd-tech-crosshair__corner--tr { top: 2px; right: 2px; border-top-width: 1px; border-right-width: 1px; }
 .ftd-tech-crosshair__corner--bl { bottom: 2px; left: 2px; border-bottom-width: 1px; border-left-width: 1px; }
 .ftd-tech-crosshair__corner--br { bottom: 2px; right: 2px; border-bottom-width: 1px; border-right-width: 1px; }
-.ftd-tech-crosshair__dot { position: absolute; top: 10.5px; left: 10.5px; width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
-.ftd-interaction-feedback[data-cursor-state="hover"] .ftd-tech-crosshair__corner--tl { transform: translate(-3px,-3px); }
-.ftd-interaction-feedback[data-cursor-state="hover"] .ftd-tech-crosshair__corner--tr { transform: translate(3px,-3px); }
-.ftd-interaction-feedback[data-cursor-state="hover"] .ftd-tech-crosshair__corner--bl { transform: translate(-3px,3px); }
-.ftd-interaction-feedback[data-cursor-state="hover"] .ftd-tech-crosshair__corner--br { transform: translate(3px,3px); }
+.ftd-tech-crosshair__dot { position: absolute; top: 4.5px; left: 4.5px; width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
 [data-ftd-touch="pressed"] { filter: brightness(1.1); }
 @media (prefers-reduced-motion: reduce) {
   .ftd-interaction-feedback { display: none !important; }

@@ -1,0 +1,14 @@
+/* Brand master/approved font not supplied. System-font approximation only. */
+.ftd-logo {
+  display: inline-block;
+  color: var(--ftd-white, #f7f7f7);
+  font-family: var(--ftd-font-display, "Arial Black", Arial, sans-serif);
+  font-weight: 900;
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: -2px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.ftd-logo__accent { color: var(--ftd-cyan, #00f4fe); }
+.ftd-logo--mobile { font-style: italic; font-size: 48px; }

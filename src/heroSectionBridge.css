@@ -1,0 +1,43 @@
+.hero-boundary-host { position: relative; background: linear-gradient(to bottom, #01090b 84%, #00131a 100%); }
+.hero-section-bridge {
+  --bridge-strength: 0;
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  right: 0;
+  top: calc(100% - 18vh);
+  height: 36vh;
+  pointer-events: none;
+  opacity: var(--bridge-strength);
+}
+.hero-section-bridge__veil,
+.hero-section-bridge__glow { position: absolute; inset: 0; pointer-events: none; }
+.hero-section-bridge__veil {
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgb(0 14 20 / 20%) 18%,
+    #00161e 36%,
+    #00131b 51%,
+    rgb(0 14 20 / 65%) 67%,
+    transparent 100%);
+}
+.hero-section-bridge__glow {
+  background: radial-gradient(ellipse 70% 35% at 54% 52%, rgb(0 174 218 / 25%), transparent 77%);
+}
+@media (max-width: 900px) {
+  .hero-section-bridge { top: calc(100% - 14dvh); height: 18dvh; }
+  .hero-section-bridge__veil {
+    background: linear-gradient(to bottom,
+      transparent 0%,
+      rgb(0 12 17 / 12%) 35%,
+      #00131b 65%,
+      #00131b 80%,
+      transparent 100%);
+  }
+  .hero-section-bridge__glow {
+    background: radial-gradient(ellipse 85% 22% at 45% 77%, rgb(0 163 201 / 14%), transparent 80%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-section-bridge { display: none; }
+}

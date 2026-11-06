@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941" role="img" aria-label="Desktop ambient cyan illumination"><title>Desktop ambient cyan illumination</title><defs>
+  <radialGradient id="ambient"><stop stop-color="#00c9ff" stop-opacity="0.5"/><stop offset=".33" stop-color="#00a4e1" stop-opacity="0.3333333333333333"/><stop offset=".73" stop-color="#0096cb" stop-opacity="0.125"/><stop offset="1" stop-color="#0096cb" stop-opacity="0"/></radialGradient>
+  <radialGradient id="left"><stop stop-color="#00d9ff" stop-opacity="1"/><stop offset=".3" stop-color="#00b9f3" stop-opacity="0.7647058823529412"/><stop offset=".73" stop-color="#00a8df" stop-opacity="0.25882352941176473"/><stop offset="1" stop-color="#00a8df" stop-opacity="0"/></radialGradient></defs>
+  <ellipse cx="700" cy="810" rx="1040" ry="240" fill="url(#ambient)" transform="rotate(14 700 810)"/>
+  <ellipse cx="-20" cy="620" rx="130" ry="345" fill="url(#left)"/>
+  </svg>

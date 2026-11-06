@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="290" height="90" viewBox="0 0 290 90" role="img" aria-label="Prototype soft mascot ground shadow">
+<title>Prototype soft mascot ground shadow</title>
+
+<defs><radialGradient id="shadow"><stop stop-color="#000" stop-opacity=".5"/><stop offset=".58" stop-color="#000" stop-opacity=".23"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="145" cy="45" rx="142" ry="39" fill="url(#shadow)"/>
+
+</svg>

@@ -1,0 +1,49 @@
+{
+  "canvas": {
+    "width": 630,
+    "height": 790
+  },
+  "source": "assets/reference-derived/mobile/capsule-mascot-approved-alpha.png",
+  "armPath": "M 104 432 C 127 431 149 436 163 450 C 176 467 181 485 181 503 C 181 527 188 552 207 579 C 229 604 242 629 246 653 C 249 674 255 694 261 717 L 269 745 Q 275 763 261 771 Q 249 776 239 764 L 223 728 Q 218 721 209 723 L 208 741 Q 205 753 192 752 L 167 746 Q 157 748 148 740 Q 137 746 128 735 L 121 719 Q 105 725 95 715 L 88 699 Q 74 695 70 680 L 61 660 Q 44 647 39 627 C 30 608 28 586 28 563 C 27 533 33 501 43 478 Q 52 453 73 442 Q 90 435 104 432 Z",
+  "pivot": {
+    "x": 116,
+    "y": 438
+  },
+  "armField": {
+    "x": 0.8,
+    "y": 2.2,
+    "rotationDeg": -0.45,
+    "units": 16,
+    "shoulderBlendY": [
+      432,
+      478
+    ],
+    "stationaryLeftRailX": [
+      0,
+      62
+    ],
+    "sleeveBlendX": [
+      62,
+      92
+    ],
+    "sampling": "bilinear, continuous original pixels",
+    "channels": {
+      "r": "inverse X displacement",
+      "g": "inverse Y displacement",
+      "b": "soft region coverage",
+      "neutral": 128
+    }
+  },
+  "productionFiles": [
+    "door-upper-registered.png",
+    "door-lower-registered.png",
+    "aperture-alpha.png",
+    "stationary-rim-approved-pixels.png",
+    "pointing-arm-displacement.png"
+  ],
+  "notForProduction": [
+    "pointing-arm-source-extracted.png",
+    "pointing-arm-underlay.png"
+  ],
+  "warning": "Reconstructed door/rim candidates accepted for restrained 2D compositing only. No original 3D doors or clean mascot separation is implied."
+}

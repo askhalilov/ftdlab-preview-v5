@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="941" height="1672" viewBox="0 0 941 1672" role="img" aria-label="Mobile HUD rings and crosshair behind central capsule">
+<title>Mobile HUD rings and crosshair behind central capsule</title>
+
+<g fill="none" stroke="#008b9e" stroke-width=".8">
+  <circle cx="470" cy="388" r="313" opacity=".4"/>
+  <circle cx="470" cy="388" r="392" opacity=".43"/>
+  <circle cx="470" cy="388" r="418" opacity=".28" stroke-dasharray="2 4"/>
+  <path d="M0 388H941 M470 0V250 M833 0 0 803" opacity=".45"/>
+</g>
+<g fill="#538e9c">
+  <circle cx="470" cy="80" r="5.3"/>
+  <circle cx="742" cy="94" r="5.3"/>
+  <circle cx="78" cy="388" r="5.3"/>
+  <circle cx="864" cy="388" r="5.3"/>
+</g>
+
+</svg>

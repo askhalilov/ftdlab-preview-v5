@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941" role="img" aria-label="Desktop HUD ring layer">
+<title>Desktop HUD ring layer</title>
+
+<g fill="none" stroke="#00a8bc" stroke-width=".8">
+  <circle cx="1080" cy="407" r="350" opacity=".32"/>
+  <circle cx="1080" cy="407" r="287" opacity=".26"/>
+  <circle cx="1080" cy="407" r="232" opacity=".16"/>
+  <path d="M835 157 1321 648 M835 655 1328 159" opacity=".17"/>
+</g>
+
+</svg>

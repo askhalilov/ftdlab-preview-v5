@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="170" viewBox="0 0 280 170" role="img" aria-label="Prototype combined jet illumination">
+<title>Prototype combined jet illumination</title>
+
+<defs><radialGradient id="glow"><stop stop-color="#00f4fe" stop-opacity=".47"/><stop offset=".34" stop-color="#00d7ee" stop-opacity=".2"/><stop offset="1" stop-color="#00d7ee" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="140" cy="85" rx="139" ry="84" fill="url(#glow)"/>
+
+</svg>

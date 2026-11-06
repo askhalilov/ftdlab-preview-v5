@@ -1,0 +1,24 @@
+.site-nav{position:fixed;z-index:90;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:32px;min-height:70px;padding:12px clamp(20px,3.3vw,60px);background:linear-gradient(#01090cf0,#01090caa);border-bottom:1px solid #2e6a763d;color:#f4f9fa;font-family:'FTD Section Helvetica',Arial,sans-serif;backdrop-filter:blur(12px)}
+.site-nav__logo{flex:none;color:#fff;text-decoration:none;font:900 clamp(16px,1.55vw,23px)/1 'FTD Section Druk',Impact,sans-serif;letter-spacing:-.05em}.site-nav__logo span{color:#00e8ef}
+.site-nav__links{display:flex;align-items:center;justify-content:center;gap:clamp(12px,1.5vw,28px);min-width:0}.site-nav__links a{color:#dce9ec;text-decoration:none;white-space:nowrap;font-size:clamp(11px,.88vw,14px);transition:color .2s}.site-nav__links a:hover,.site-nav__links a[aria-current]{color:#00effc}.site-nav__links a[aria-current]{text-shadow:0 0 13px #00effc70}
+.site-nav__toggle{display:none;flex:none;place-content:center;gap:5px;width:44px;height:44px;border:1px solid #4b939f;border-radius:4px;background:#04171d;color:#00effc}.site-nav__toggle span{display:block;width:20px;height:2px;background:currentColor}
+.preview-clean .hero-desktop .brand,.preview-clean .hero-mobile .brand,.preview-clean .menu-trigger{visibility:hidden;pointer-events:none}
+@media(max-width:900px){.site-nav{min-height:60px;padding:8px 20px}.site-nav__toggle{display:grid}.site-nav__links{display:none;position:absolute;top:100%;left:0;right:0;align-items:stretch;flex-direction:column;gap:0;padding:10px 20px 20px;border-bottom:1px solid #326f7a;background:#021116f8}.site-nav__links--open{display:flex}.site-nav__links a{padding:13px 5px;font-size:15px}.site-nav__links a+a{border-top:1px solid #25515b69}}
+@media(prefers-reduced-motion:reduce){.site-nav__links a{transition:none}}
+.site-nav__language{display:flex;align-items:center;flex:none;gap:2px;border:1px solid #33717b;border-radius:20px;padding:3px;background:#001016;color:#d6e8eb}.site-nav__language button{min-width:31px;min-height:29px;border:0;border-radius:15px;background:transparent;color:inherit;font:700 11px/1 'FTD Section Helvetica',Arial,sans-serif;cursor:pointer}.site-nav__language button[aria-pressed=true]{background:#00effc;color:#001014}.site-nav__language--mobile,.site-nav__mobile-step{display:none}
+@media(max-width:900px){.site-nav{gap:8px}.site-nav__mobile-step{display:block;margin-left:auto;color:#93dce5;font:700 10px/1 'FTD Section Helvetica',Arial,sans-serif;white-space:nowrap;letter-spacing:.08em}.site-nav__language--desktop{display:none}.site-nav__language--mobile{display:flex;margin-top:10px;align-self:flex-start}.site-nav__links{max-height:calc(100dvh - 60px);overflow-y:auto}.site-nav__toggle{order:3}}
+@media(min-width:901px) and (max-width:1200px){.site-nav{gap:17px;padding-inline:25px}.site-nav__links{gap:10px}.site-nav__links a{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.site-nav__language button{transition:none}}
+.site-nav__logo .site-nav__logo-standard{color:#fff}
+.site-nav__logo .site-nav__logo-standard span{color:#00e8ef}
+.site-nav__connect-logo{display:none}
+.site-nav__mobile-step{border:0;background:transparent;padding:0;cursor:pointer}
+@media(min-width:901px){
+  .site-nav[data-current-section='section-04']{left:50%;right:auto;width:min(100vw,177.68dvh);height:min(7.2vw,12.8dvh);min-height:0;transform:translateX(-50%);align-items:flex-start;padding:min(3.11vw,5.53dvh) 4.3% 0;background:transparent;border:0;backdrop-filter:none;box-shadow:none}
+  .site-nav[data-current-section='section-04'] .site-nav__logo-standard{display:none}
+  .site-nav[data-current-section='section-04'] .site-nav__connect-logo{display:block;width:min(13.75vw,24.43dvh);height:auto}
+  .site-nav[data-current-section='section-04'] .site-nav__links,.site-nav[data-current-section='section-04'] .site-nav__language--desktop{display:none}
+  .site-nav[data-current-section='section-04'] .site-nav__mobile-step{position:absolute;top:min(4.2vw,7.47dvh);right:4.5%;display:flex;align-items:center;margin:0;color:#001619;font:400 min(1.5vw,2.66dvh)/1 'FTD Section Helvetica',Arial,sans-serif;letter-spacing:.03em}
+  .site-nav[data-current-section='section-04'] .site-nav__mobile-step::before{content:'';display:block;width:min(3.8vw,6.75dvh);height:1px;margin-right:min(2.2vw,3.91dvh);background:#002729}
+  .site-nav[data-current-section='section-04'] .site-nav__links--open{position:absolute;top:100%;left:4.3%;right:4.3%;display:flex;padding:16px;background:#001016f2;border:1px solid #33717b;border-radius:8px}
+}

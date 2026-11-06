@@ -1,0 +1,35 @@
+{
+  "name": "ftdlab-responsive-hero",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "assets:audit": "node scripts/audit-assets.mjs",
+    "check:animations": "tsc -p animations/tsconfig.json --noEmit",
+    "qa:responsive": "node scripts/responsive-qa.mjs",
+    "qa:motion": "node scripts/motion-qa.mjs",
+    "qa:compare": "node scripts/compare-visuals.mjs",
+    "qa:production": "node scripts/production-qa.mjs"
+  },
+  "dependencies": {
+    "gsap": "3.13.0",
+    "motion-dom": "12.34.0",
+    "three": "^0.186.1",
+    "vue": "3.5.43"
+  },
+  "devDependencies": {
+    "@types/node": "22.18.8",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-vue": "6.0.1",
+    "sharp": "0.35.5",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vue-tsc": "3.1.1"
+  },
+  "overrides": {
+    "motion-utils": "12.29.2"
+  }
+}

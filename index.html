@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#00090c" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <link rel="alternate icon" type="image/x-icon" href="%BASE_URL%favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%BASE_URL%favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%BASE_URL%favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%BASE_URL%apple-touch-icon.png" />
+    <meta name="description" content="FTD.LAB is an iGaming media buying team focused on performance, strategic partnerships, and sustainable growth." />
+    <title>FTD.LAB — Performance Media Buying &amp; Partnerships</title>
+    <link rel="preload" href="./assets/fonts/portfolio-loader/montserrat-latin-900.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./assets/fonts/portfolio-loader/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      html,body{margin:0;min-height:100%;background:#000;color:#fff}
+      #ftd-boot{position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000;color:#fafafa;transition:opacity .18s ease,visibility .18s ease}
+      #ftd-boot.ftd-boot--leaving{opacity:0;visibility:hidden;pointer-events:none}
+      .ftd-boot__presentation{text-align:center;max-width:100vw}
+      .ftd-boot__brand{height:128px;display:flex;align-items:center;justify-content:center;margin-bottom:48px;font:900 112px/1 'Arial Black',Arial,sans-serif;letter-spacing:-.05em;white-space:nowrap}
+      .ftd-boot__brand span{color:#00effc}
+      .ftd-boot__readiness{width:256px;margin-inline:auto}
+      .ftd-boot__track{height:4px;border-radius:9999px;overflow:hidden;background:rgba(255,255,255,.12)}
+      .ftd-boot__track span{display:block;width:24%;height:100%;background:#00dcec}
+      .ftd-boot__label{margin-top:16px;color:rgba(255,255,255,.4);font:400 12px/16px Arial,sans-serif}
+      .ftd-boot__failure{display:none;max-width:32rem;margin:24px auto 0;padding:0 20px;font:16px/1.5 Arial,sans-serif;color:#d4e5e8}
+      .ftd-boot__failure a{color:#00effc}
+      #ftd-boot.ftd-boot--failed .ftd-boot__failure{display:block}
+      @media(max-width:767px){.ftd-boot__brand{font-size:clamp(64px,19vw,76px)}}
+      @media(prefers-reduced-motion:reduce){#ftd-boot{transition:none}}
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="ftd-boot" role="status" aria-label="Loading FTD.LAB experience">
+      <div class="ftd-boot__presentation">
+        <div class="ftd-boot__brand" aria-hidden="true">FTD<span>.LAB</span></div>
+        <div class="ftd-boot__readiness" aria-hidden="true"><div class="ftd-boot__track"><span></span></div><div class="ftd-boot__label">initializing experience</div></div>
+        <p class="ftd-boot__failure">The site could not finish loading. <a href="">Try again</a> or <a href="mailto:ftd.lab.traffic@gmail.com">contact FTD.LAB</a>.</p>
+      </div>
+    </div>
+    <script>
+      window.setTimeout(function(){if(!document.documentElement.dataset.ftdMounted){var boot=document.getElementById('ftd-boot');if(boot){boot.classList.add('ftd-boot--failed');boot.setAttribute('aria-label','FTD.LAB could not load')}}},8000)
+    </script>
+    <noscript>
+      <style>#ftd-boot{display:none!important}body{margin:0;background:#00090c;color:white;font:20px Arial,sans-serif}.no-js{max-width:60ch;margin:8vh auto;padding:24px}.no-js h1{font-size:clamp(32px,6vw,72px)}.no-js em{color:#00effc;font-style:normal}</style>
+      <main class="no-js">
+        <p>FTD.LAB</p><h1>Turn traffic <em>into results.</em><br />We handle the rest.</h1>
+        <p>FTD.LAB is an iGaming media buying team focused on performance, strategic partnerships, and sustainable growth.</p>
+        <p>Enable JavaScript to explore the site, or <a href="mailto:ftd.lab.traffic@gmail.com">contact FTD.LAB by email</a>.</p>
+      </main>
+    </noscript>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

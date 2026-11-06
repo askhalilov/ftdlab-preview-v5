@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FTD.LAB">
+  <rect width="64" height="64" rx="12" fill="#01090c"/>
+  <text x="5" y="28" fill="#f8fbfc" font-family="Arial Black,Arial,sans-serif" font-size="26" font-weight="900" letter-spacing="-2">FTD</text>
+  <circle cx="57" cy="25" r="3.5" fill="#00effc"/>
+  <text x="8" y="53" fill="#00effc" font-family="Arial Black,Arial,sans-serif" font-size="25" font-weight="900" letter-spacing="-2">LAB</text>
+</svg>

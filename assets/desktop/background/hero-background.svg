@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941" role="img" aria-label="Desktop dark teal base without foreground objects">
+<title>Desktop dark teal base without foreground objects</title>
+
+<defs>
+  <radialGradient id="base" cx="54%" cy="39%" r="82%"><stop stop-color="#00161b"/><stop offset=".56" stop-color="#00090c"/><stop offset="1" stop-color="#000305"/></radialGradient>
+  <radialGradient id="lower" cx="41%" cy="105%" r="74%"><stop stop-color="#00232d" stop-opacity=".8"/><stop offset=".75" stop-color="#00080b" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1672" height="941" fill="url(#base)"/>
+<rect width="1672" height="941" fill="url(#lower)"/>
+
+</svg>

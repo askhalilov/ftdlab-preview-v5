@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941" role="img" aria-label="Optional very subtle seeded grain layer">
+<title>Optional very subtle seeded grain layer</title>
+
+<defs><filter id="noise" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".86" numOctaves="1" seed="28" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></defs>
+<rect width="1672" height="941" filter="url(#noise)" opacity=".014"/>
+
+</svg>

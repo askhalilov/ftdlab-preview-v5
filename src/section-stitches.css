@@ -1,0 +1,15 @@
+/* Zero-height accents join adjacent native-scroll sections without owning scroll. */
+.section-stitch{position:relative;height:0;z-index:6;pointer-events:none;overflow:visible}
+.section-stitch::before{content:'';position:absolute;top:-1px;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,236,247,.45) 26%,rgba(0,236,247,.8) 50%,rgba(0,236,247,.45) 74%,transparent)}
+.section-stitch::after{content:'';position:absolute;top:-12px;left:16%;right:16%;height:24px;background:radial-gradient(ellipse at center,rgba(0,218,235,.10),transparent 70%)}
+.section-stitch--03-04::before{opacity:.5}
+.section-stitch--04-05::before{background:linear-gradient(90deg,transparent,rgba(0,16,19,.55) 25%,rgba(0,16,19,.8) 50%,rgba(0,16,19,.55) 75%,transparent)}
+.section-stitch--04-05::after{background:radial-gradient(ellipse at center,rgba(0,46,51,.12),transparent 70%)}
+.section-stitch--02-03{height:clamp(64px,9svh,96px);background:linear-gradient(180deg,#01090c 0%,#03212a 48%,#01090c 100%)}
+.section-stitch--03-04{height:clamp(72px,10svh,112px);background:linear-gradient(180deg,#01090c 0%,#023a43 45%,#03f8fe 100%)}
+.section-stitch--04-05{height:clamp(76px,11svh,120px);background:linear-gradient(180deg,#03f8fe 0%,#09505a 52%,#05090d 100%)}
+.section-stitch--02-03::before,.section-stitch--03-04::before,.section-stitch--04-05::before{top:50%;opacity:.35}
+.section-stitch--02-03::after,.section-stitch--03-04::after,.section-stitch--04-05::after{top:18%;height:64%;opacity:.5}
+.section-stitch--03-04::before,.section-stitch--04-05::before{content:none}
+@media(max-width:780px){.section-stitch::before{left:6%;right:6%;opacity:.55}.section-stitch::after{top:-8px;height:16px}}
+@media(max-width:900px){.section-stitch--02-03{height:54px}.section-stitch--03-04{height:66px;background:linear-gradient(180deg,#01090c 0%,#023a43 45%,#01f1fc 100%)}.section-stitch--04-05{height:72px;background:linear-gradient(180deg,#01f1fc 0%,#09505a 52%,#05090d 100%)}}

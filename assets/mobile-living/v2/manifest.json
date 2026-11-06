@@ -1,0 +1,82 @@
+{
+  "version": 2,
+  "date": "2026-10-20",
+  "canvas": {
+    "width": 630,
+    "height": 790
+  },
+  "placement": {
+    "x": 200,
+    "y": 108,
+    "heroWidth": 941,
+    "heroHeight": 1672
+  },
+  "archive": {
+    "file": "FTDLAB_MOBILE_CAPSULE_PREVIEW_V2.zip",
+    "sha256": "5ecdfe47143b6b0fcb5acbacdf801dcb50eeed6083a6572f852c2af90a68d217"
+  },
+  "approvedSource": {
+    "file": "assets/reference-derived/mobile/capsule-mascot-approved-alpha.png",
+    "pixelsIdenticalToV2ApprovedScene": true,
+    "sha256": "09b8e6a46ed5696393655cbe65a4f424e1917e821a3006373cc3e857ddf4b2a4"
+  },
+  "assets": [
+    {
+      "file": "assets/mobile-living/v2/door-upper-registered.png",
+      "description": "V2 glossy upper candidate; opaque occlusion; registered diagonal travel.",
+      "width": 630,
+      "height": 790,
+      "bytes": 94732,
+      "sha256": "a226eac559d85b6c657fa95b14cdcbd8c32471d82444b706d263c8896031e99b",
+      "status": "ACCEPTED: scoped Chrome browser visual QA, 20 October 2026"
+    },
+    {
+      "file": "assets/mobile-living/v2/door-lower-registered.png",
+      "description": "V2 glossy lower candidate; opaque occlusion; registered diagonal travel.",
+      "width": 630,
+      "height": 790,
+      "bytes": 93537,
+      "sha256": "3d565cc746a806991d0190e28ac8bcbda143b2494ea9b965d7cf85cd8cc684d1",
+      "status": "ACCEPTED: scoped Chrome browser visual QA, 20 October 2026"
+    },
+    {
+      "file": "assets/mobile-living/v2/aperture-alpha.png",
+      "description": "V2 registered capsule-silhouette aperture alpha.",
+      "width": 630,
+      "height": 790,
+      "bytes": 8999,
+      "sha256": "1cba7f200855d0937ce45d66e4f94af737932625eadd6f3f759fb1618a335cd1",
+      "status": "ACCEPTED: scoped Chrome browser visual QA, 20 October 2026"
+    },
+    {
+      "file": "assets/mobile-living/v2/stationary-rim-approved-pixels.png",
+      "description": "Original rim colors with V2 reconstructed left-rail underdraw; stationary compositing pass.",
+      "width": 630,
+      "height": 790,
+      "bytes": 883309,
+      "sha256": "f7122c46717d6c5669076f1e7300bb57d9af2ff8ca94587c00ad70402d169304",
+      "status": "ACCEPTED: scoped Chrome browser visual QA, 20 October 2026"
+    },
+    {
+      "file": "assets/mobile-living/v2/pointing-arm-displacement.png",
+      "description": "Original-source continuous connected arm field; R/G displacement, B soft coverage. No replacement hand.",
+      "width": 630,
+      "height": 790,
+      "bytes": 49635,
+      "sha256": "033aa5b7af76a2e7e333b372afd916be7a41fd55dc3a6c5f05cd57a7918032e7",
+      "status": "ACCEPTED: scoped Chrome browser visual QA, 20 October 2026"
+    }
+  ],
+  "limits": [
+    "Doors/rim underdraw are reconstructed 2D layers, not original 3D source.",
+    "Arm is a bounded continuous original-pixel deformation, not a separately authored limb or full body rig.",
+    "Eye-local blink masks are retained display simulations.",
+    "No mobile feet or thruster effects are invented."
+  ],
+  "candidateDirectory": "qa/mobile-living-2026-10-20/candidates",
+  "rejectedTrialFiles": [
+    "prepared/pointing-arm-underlay.png",
+    "prepared/pointing-arm-source-extracted.png"
+  ],
+  "runtimeDependenciesAdded": 0
+}

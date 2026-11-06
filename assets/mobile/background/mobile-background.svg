@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="941" height="1672" viewBox="0 0 941 1672" role="img" aria-label="Mobile dark background with restrained central illumination">
+<title>Mobile dark background with restrained central illumination</title>
+
+<defs>
+  <radialGradient id="base" cx="50%" cy="32%" r="77%"><stop stop-color="#001317"/><stop offset=".52" stop-color="#00080b"/><stop offset="1" stop-color="#000203"/></radialGradient>
+  <radialGradient id="stage"><stop stop-color="#00717e" stop-opacity=".2"/><stop offset=".55" stop-color="#00343c" stop-opacity=".12"/><stop offset="1" stop-color="#00171b" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="941" height="1672" fill="url(#base)"/>
+<ellipse cx="477" cy="513" rx="442" ry="510" fill="url(#stage)"/>
+
+</svg>

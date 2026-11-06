@@ -1,0 +1,65 @@
+/* Mobile V2: document flow owns scrolling; artwork retains its existing styling. */
+@media (max-width: 900px) {
+  html.ftd-native-scroll .s03,
+  html.ftd-native-scroll .s03-layout,
+  html.ftd-native-scroll .s04,
+  html.ftd-native-scroll .s04-viewport,
+  html.ftd-native-scroll .s05,
+  html.ftd-native-scroll .s06 { min-height: var(--mobile-viewport-height, 100svh); }
+  html.ftd-native-scroll .s04-title { top: calc(60px + max(38px, var(--mobile-viewport-height, 100svh) * .05)); }
+  html.ftd-native-scroll .s04-stage { top: 26.5%; }
+  html.ftd-native-scroll.ftd-mobile-compact .s04-title { top: 80px; }
+  html.ftd-native-scroll.ftd-mobile-compact .s04-stage { top: 26%; }
+  html.ftd-native-scroll .s03-copy { padding-top: clamp(54px, calc(var(--mobile-viewport-height, 100svh) * .09), 92px); }
+  html.ftd-native-scroll .s03-eyebrow { margin-bottom: 24px; }
+  html.ftd-native-scroll .s03-copy p { margin-top: 18px; }
+  html.ftd-native-scroll .s03-mascot { width: 112vw; margin-top: clamp(18px, calc(var(--mobile-viewport-height, 100svh) * .03), 34px); }
+  html.ftd-native-scroll .s03-platform { top: 68%; }
+  html.ftd-native-scroll.ftd-mobile-short .s03-copy { padding-top: clamp(36px, calc(var(--mobile-viewport-height, 100svh) * .07), 50px); }
+  html.ftd-native-scroll.ftd-mobile-short .s03-eyebrow { margin-bottom: 17px; }
+  html.ftd-native-scroll.ftd-mobile-short .s03-copy p { margin-top: 12px; }
+  html.ftd-native-scroll.ftd-mobile-short .s03-mascot { width: 111vw; margin-top: 12px; }
+  html.ftd-native-scroll.ftd-mobile-short .s03-platform { top: 73%; }
+
+  .s02-native .s02-frame { height: auto; overflow: visible; }
+  .s02-native .s02-track { display: block; width: 100%; height: auto; transform: none !important; will-change: auto; }
+  .s02-native .s02-scene {
+    width: 100%; height: auto; min-height: var(--mobile-viewport-height, 100svh);
+    grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto;
+    align-content: center; gap: 32px; padding: 88px clamp(20px, 6vw, 60px) 56px;
+  }
+  .s02-native .s02-copy { align-self: auto; }
+  .s02-native h2 { font-size: clamp(32px, 8vw, 66px); }
+  .s02-native .s02-scene-two h2 { font-size: clamp(30px, 7.3vw, 58px); }
+  .s02-native .s02-scene-three h2 { font-size: clamp(29px, 7.1vw, 58px); }
+  .s02-native .s02-copy p { font-size: clamp(13px, 2.8vw, 17px); }
+  .s02-native .s02-visual { align-self: center; margin-top: 0; }
+  .s02-native .s02-phone { width: min(73vw, 310px); height: clamp(285px, 85vw, 370px); min-height: 285px; max-height: none; }
+  .s02-native .s02-system { max-height: none; min-height: 0; aspect-ratio: 1 / 1; }
+  .s02-native .s02-chart { height: clamp(240px, 75vw, 320px); min-height: 240px; max-height: none; }
+  .s02-native .s02-progress { display: none; }
+  .s02-native .s02-scene-index { bottom: 20px; }
+}
+@media (max-width: 600px) {
+  html.ftd-native-scroll .hero-mobile { height: max(calc(1672 * var(--u)), calc(var(--details-top) + 322px), var(--mobile-viewport-height, 100svh)); }
+}
+@media (max-width: 520px) {
+  .s02-native .s02-scene { padding-inline: 20px; }
+  .s02-native h2 { font-size: clamp(23px, 7.4vw, 34px); }
+  .s02-native .s02-scene-two h2, .s02-native .s02-scene-three h2 { font-size: clamp(22px, 7vw, 32px); }
+  .s02-native .s02-copy p { font-size: 13px; line-height: 1.35; }
+  html.ftd-native-scroll:not(.ftd-mobile-short) .s03-mascot { margin-top: 24px; }
+  html.ftd-native-scroll:not(.ftd-mobile-short) .s03-platform { top: 70%; }
+}
+@media (max-width: 900px) {
+  .ftd-mobile-landscape .s02-native .s02-scene { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto; padding: 88px 26px 48px; }
+  .ftd-mobile-landscape .s02-native h2 { font-size: clamp(25px, 4vw, 44px); }
+  .ftd-mobile-landscape .s02-native .s02-phone { width: min(32vw, 290px); }
+  .ftd-mobile-landscape .s02-native .s02-card { width: 40%; padding: 0 8px; font-size: 10px; }
+  .ftd-mobile-landscape .s02-native .s02-card-geo, .ftd-mobile-landscape .s02-native .s02-card-conditions { left: 1%; }
+  .ftd-mobile-landscape .s02-native .s02-card-brand, .ftd-mobile-landscape .s02-native .s02-card-execution { right: 1%; }
+  .ftd-mobile-landscape .s02-native .s02-traffic { width: 39%; font-size: 17px; }
+  /* Give the existing art its own flow space in short landscape windows. */
+  html.ftd-native-scroll.ftd-mobile-landscape .s04, html.ftd-native-scroll.ftd-mobile-landscape .s04-viewport { min-height: calc(250px + 56.28vw); }
+  html.ftd-native-scroll.ftd-mobile-landscape .s04-stage { width: 100%; left: 0; top: 200px; transform: none; }
+}

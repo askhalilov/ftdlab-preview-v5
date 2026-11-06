@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="266" height="134" viewBox="0 0 266 134" role="img" aria-label="Desktop stat card 1 background without text">
+<title>Desktop stat card 1 background without text</title>
+
+<defs>
+  <linearGradient id="fill-desktop1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#001e29" stop-opacity=".9"/><stop offset=".57" stop-color="#000b10" stop-opacity=".91"/><stop offset="1" stop-color="#002330" stop-opacity=".85"/></linearGradient>
+  <linearGradient id="stroke-desktop1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#00748e"/><stop offset=".55" stop-color="#00677c"/><stop offset="1" stop-color="#00edf9"/></linearGradient>
+  <radialGradient id="shine-desktop1" cx="98%" cy="89%" r="68%"><stop stop-color="#00dbe9" stop-opacity=".18"/><stop offset="1" stop-color="#00dbe9" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="1" y="1" width="264" height="132" rx="19" fill="url(#fill-desktop1)" stroke="url(#stroke-desktop1)" stroke-width="1.2"/>
+<rect x="2" y="2" width="262" height="130" rx="18" fill="url(#shine-desktop1)"/>
+
+</svg>

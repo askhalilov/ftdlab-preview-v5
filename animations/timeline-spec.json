@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "status": "GENERATED",
+  "visualAcceptance": "NEEDS_SOURCE",
+  "introSeconds": 2.6,
+  "opening": { "mode": "discrete preloaded image opacity selection", "fps": 24, "framesMin": 2, "framesMax": 25, "morphing": false, "crossfade": false },
+  "approvalGate": ["approved=true for every registered source", "matching width and height within each frame set", "shared reviewed alignmentKey within each frame set", "decoded natural image dimensions equal metadata", "independent capsule and eyes hosts"],
+  "desktop": {
+    "intro": [
+      { "layer": "logo", "start": 0, "duration": 0.25 },
+      { "layer": "headline lines", "start": 0.16, "duration": 0.42, "stagger": 0.12 },
+      { "layer": "capsule frame player", "start": 0.52, "durationMax": 1 },
+      { "layer": "mascot", "start": 1.58, "duration": 0.26 },
+      { "layer": "eyes light", "start": 1.84, "duration": 0.16 },
+      { "layer": "two boot jets", "start": 1.84, "duration": 0.19 },
+      { "layer": "CTA", "start": 1.98, "duration": 0.3, "stagger": 0.07 },
+      { "layer": "cards", "start": 2.04, "duration": 0.28, "stagger": 0.07 }
+    ],
+    "idle": { "mascotAmplitudeCssPx": 3, "mascotPeriodSeconds": 4.8, "jetScaleY": [0.98, 1], "jetOpacity": [0.94, 1], "leftJetHalfPeriodSeconds": 0.27, "rightJetHalfPeriodSeconds": 0.31, "blinkDelayMs": [3800, 7500], "capsuleStatic": true, "hudStatic": true }
+  },
+  "mobile": {
+    "intro": [
+      { "layer": "logo", "start": 0, "duration": 0.25 },
+      { "layer": "capsule frame player", "start": 0.32, "durationMax": 1 },
+      { "layer": "pointing mascot", "start": 1.42, "duration": 0.28 },
+      { "layer": "headline lines", "start": 1.65, "duration": 0.3, "stagger": 0.06 },
+      { "layer": "CTA", "start": 2.08, "duration": 0.3, "stagger": 0.06 },
+      { "layer": "cards", "start": 2.16, "duration": 0.25, "stagger": 0.05 }
+    ],
+    "idle": { "blinkDelayMs": [4800, 8900], "levitation": false, "parallax": false, "jetLoop": false, "hudLoop": false }
+  },
+  "blink": { "frameOrder": ["open", "half-closed", "closed"], "sequence": ["half-closed", "closed", "half-closed", "open"], "dwellMs": [45, 85, 45], "totalMs": 175 },
+  "reducedMotion": "show final open capsule, open eyes and all HTML UI; no intro, blink, levitation, or jet loop",
+  "visibility": "pause intro and idle; cancel pending blink and reset open eyes; resume from current intro position or schedule one fresh future blink, with no catch-up queue",
+  "resize": "CSS reserved aspect-ratio hosts adapt; drivers never measure or change layout during viewport changes"
+}

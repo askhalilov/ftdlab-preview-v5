@@ -1,0 +1,75 @@
+/* All interface words remain HTML. Original display face needs approved source. */
+.ftd-headline {
+  margin: 0;
+  color: var(--ftd-white);
+  font-family: var(--ftd-font-display);
+  font-weight: 900;
+  font-size: clamp(44px, 5.99vw, 100px);
+  line-height: .87;
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+}
+.ftd-headline__line { display: block; }
+.ftd-headline__accent { color: var(--ftd-cyan); }
+.ftd-copy {
+  margin: 0;
+  color: var(--ftd-white);
+  font-family: var(--ftd-font-body);
+  font-size: clamp(15px, 1.55vw, 26px);
+  line-height: 1.35;
+}
+.ftd-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 76px;
+  padding: 0 34px;
+  border: 2px solid var(--ftd-cyan);
+  border-radius: var(--ftd-radius-button);
+  background: transparent;
+  color: var(--ftd-white);
+  font: 400 26px/1.1 var(--ftd-font-body);
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.ftd-button--primary {
+  color: #000;
+  background: var(--ftd-cyan);
+  font-weight: 700;
+  box-shadow: 0 0 28px rgba(0, 244, 254, .45);
+}
+.ftd-button:focus-visible { outline: var(--ftd-focus-ring); outline-offset: 5px; }
+.ftd-stat {
+  box-sizing: border-box;
+  min-height: 134px;
+  padding: 24px 28px;
+  color: var(--ftd-white);
+  border: 1px solid #008b9e;
+  border-radius: var(--ftd-radius-card);
+  background: linear-gradient(138deg, rgba(0,30,41,.9), rgba(0,11,16,.91) 60%, rgba(0,35,48,.85));
+  font-family: var(--ftd-font-body);
+}
+.ftd-stat__value {
+  display: block;
+  color: var(--ftd-cyan);
+  font-family: var(--ftd-font-display);
+  font-size: 50px;
+  font-weight: 900;
+  letter-spacing: -.04em;
+  line-height: .98;
+}
+.ftd-stat__label { display: block; margin-top: 3px; font-size: 25px; line-height: 1.1; }
+.ftd-note { color: var(--ftd-white); font-family: var(--ftd-font-mono); font-size: 24px; line-height: 1.25; font-weight: 400; }
+.ftd-mobile .ftd-headline { font-size: clamp(26px, 7.45vw, 70px); line-height: .96; letter-spacing: -.045em; text-align: center; }
+.ftd-mobile .ftd-button { min-height: 73px; font-size: 27px; text-transform: uppercase; }
+.ftd-mobile .ftd-button--primary { box-shadow: none; }
+.ftd-mobile .ftd-button--secondary { border-color: #b6bcc0; }
+.ftd-mobile .ftd-stat { min-height: 130px; padding: 17px 34px; border-radius: 25px; }
+.ftd-mobile .ftd-stat:first-child { min-height: 113px; }
+.ftd-mobile .ftd-stat__value { font-size: 68px; }
+.ftd-mobile .ftd-stat__label { color: var(--ftd-muted); font-size: 28px; }
+@media (prefers-reduced-motion: reduce) {
+  .ftd-button { scroll-behavior: auto; }
+}

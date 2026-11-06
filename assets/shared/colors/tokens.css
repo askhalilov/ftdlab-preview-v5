@@ -1,0 +1,17 @@
+:root {
+  --ftd-cyan: #00f4fe;
+  --ftd-cyan-muted: #00e0ea;
+  --ftd-cyan-deep: #008b9e;
+  --ftd-background: #01080b;
+  --ftd-background-deep: #000305;
+  --ftd-background-teal: #00161b;
+  --ftd-card: #00121b;
+  --ftd-white: #f7f7f7;
+  --ftd-muted: #a2d2e1;
+  --ftd-font-display: "Arial Black", "Arial", sans-serif;
+  --ftd-font-body: "Arial", "Helvetica", sans-serif;
+  --ftd-font-mono: "Consolas", "Courier New", monospace;
+  --ftd-radius-card: 19px;
+  --ftd-radius-button: 999px;
+  --ftd-focus-ring: 3px solid #f7f7f7;
+}

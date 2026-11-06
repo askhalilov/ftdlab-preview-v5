@@ -1,0 +1,260 @@
+@font-face { font-family: 'FTD Section Druk'; src: url('../assets/fonts/corporate/drukwidecyr-bold.otf') format('opentype'); font-style: normal; font-weight: 900; font-display: swap; }
+@font-face { font-family: 'FTD Section Helvetica'; src: url('../assets/fonts/corporate/helveticaneuecyr-roman.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
+.s02 { position: relative; width: 100%; background: #020b0e; color: #f3f8f9; font-family: 'FTD Section Helvetica', Helvetica, Arial, sans-serif; }
+.s02-frame { position: relative; isolation: isolate; width: 100%; height: 100vh; height: 100dvh; overflow: hidden; background: #01080b; }
+.s02-track { display: flex; width: 300vw; height: 100%; will-change: transform; }
+.s02-scene { flex: 0 0 100vw; width: 100vw; height: 100%; position: relative; display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: center; gap: clamp(24px, 5vw, 110px); padding: clamp(64px, 7vw, 115px) clamp(28px, 7vw, 110px); overflow: hidden; }
+.s02-scene::before { content:'';position:absolute;z-index:1;inset:0 0 auto;height:52%;pointer-events:none;background:linear-gradient(180deg,#01080bf0 0%,#01080bdc 56%,transparent 100%) }
+.s02-copy, .s02-visual, .s02-scene-index { position: relative; z-index: 2; }
+.s02-copy { align-self: center; max-width: 650px; }
+.s02-eyebrow { display: block; margin-bottom: clamp(18px, 3vw, 42px); color: #66b7c3; font: 700 11px/1.2 'FTD Section Helvetica', Helvetica, Arial, sans-serif; letter-spacing: .25em; }
+.s02 h2 { margin: 0; font: 900 clamp(39px, 5.1vw, 86px)/.97 'FTD Section Druk', 'Arial Black', Arial, sans-serif; letter-spacing: -.045em; }
+.s02 h2 em { color: var(--cyan); font-style: normal; }
+.s02-copy p { width: min(410px, 100%); margin: clamp(24px, 3vw, 42px) 0 0; color: #b9c8ca; font: 400 clamp(15px, 1.15vw, 19px)/1.5 'FTD Section Helvetica', Helvetica, Arial, sans-serif; }
+.s02-scene-two h2 { font-size: clamp(36px, 4.55vw, 75px); }
+.s02-scene-three h2 { font-size: clamp(35px, 4.65vw, 76px); }
+.s02-visual { justify-self: center; width: min(100%, 630px); }
+.s02-geo { height: clamp(280px, 30vw, 410px); border: 1px solid #18acc1; border-radius: 25px; background: linear-gradient(140deg, #063340d9, #03151bd9 60%, #08455598); box-shadow: inset 0 0 36px #00ddeb13, 0 30px 80px #0008, 0 0 38px #00e8ff13; overflow: hidden; padding: 30px 36px; }
+.s02-geo::before { content: ''; position: absolute; inset: 1px; border-radius: inherit; background: linear-gradient(130deg, #a8ffff21, transparent 40%); pointer-events: none; }
+.s02-geo-header, .s02-geo-footer { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; }
+.s02-geo-header span { color: var(--cyan); }
+.s02-geo-header { color: white; font: 900 clamp(27px, 3vw, 42px)/1 'FTD Section Druk', 'Arial Black', Arial, sans-serif; }
+.s02-geo-symbol { color: var(--cyan); font: 36px/1 sans-serif; }
+.s02-geo-footer { position: absolute; inset: auto 36px 28px; color: #88aeb5; font: 700 10px/1 sans-serif; letter-spacing: .16em; }
+.s02-reel { --geo-index: 0; position: absolute; inset: 80px 35px 55px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+.s02-reel { mask-image: linear-gradient(to bottom, transparent, #000 24%, #000 76%, transparent); }
+.s02-country { position: absolute; top: 50%; width: 100%; transform: translateY(calc((var(--country-index) - var(--geo-index)) * 68px - 50%)); text-align: center; white-space: nowrap; color: #b4dae0; opacity: .34; font: 700 clamp(22px, 2.5vw, 35px)/1 'FTD Section Helvetica', Arial, sans-serif; transition: transform .65s cubic-bezier(.22,.75,.22,1), opacity .65s, color .65s; }
+.s02-reel[style*="--geo-index: 0"] .s02-country:nth-child(1), .s02-reel[style*="--geo-index: 1"] .s02-country:nth-child(2), .s02-reel[style*="--geo-index: 2"] .s02-country:nth-child(3), .s02-reel[style*="--geo-index: 3"] .s02-country:nth-child(4), .s02-reel[style*="--geo-index: 4"] .s02-country:nth-child(5) { color: var(--cyan); opacity: 1; text-shadow: 0 0 18px #00effc5c; }
+.s02-system { aspect-ratio: 640 / 470; min-height: 300px; }
+.s02-system-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.s02-connection { fill: none; stroke: #17e5f1; stroke-width: 1.5; vector-effect: non-scaling-stroke; filter: drop-shadow(0 0 4px #00effc70); }
+.s02-traffic, .s02-card { position: absolute; display: flex; align-items: center; justify-content: space-between; color: white; background: linear-gradient(140deg, #09323d, #051b23); border: 1px solid #297583; box-shadow: inset 0 0 20px #00dfea0b; }
+.s02-traffic { left: 50%; top: 50%; width: 36%; height: 24%; transform: translate(-50%, -50%); flex-direction: column; justify-content: center; border-radius: 22px; font: 900 clamp(20px, 2vw, 32px)/1 'FTD Section Druk', 'Arial Black', Arial, sans-serif; color: var(--cyan); }
+.s02-traffic span { margin-top: 12px; color: #82abb1; font: 700 9px/1 sans-serif; letter-spacing: .12em; }
+.s02-card { width: 27%; height: 18%; padding: 0 18px; border-radius: 16px; font: 900 clamp(13px, 1.35vw, 19px)/1 'FTD Section Druk', 'Arial Black', Arial, sans-serif; }
+.s02-card small { position: absolute; top: 8px; right: 9px; color: #6eabb4; font: 700 9px sans-serif; }
+.s02-card-geo { left: 8%; top: 13%; } .s02-card-brand { right: 8%; top: 13%; }
+.s02-card-conditions { left: 8%; bottom: 13%; } .s02-card-execution { right: 8%; bottom: 13%; }
+.s02-chart { height: min(42vw, 410px); min-height: 290px; border-bottom: 1px solid #277481; isolation:isolate; background:linear-gradient(180deg,#02131af7,#021a22f5); border-radius:8px 8px 0 0; box-shadow:inset 0 0 35px #00effc0d; }
+.s02-chart-grid { position: absolute; inset: 0; background: repeating-linear-gradient(to top, #42dce71a 0 1px, transparent 1px 25%); }
+.s02-bars { position: absolute; inset: 0 0 0 0; display: flex; align-items: end; justify-content: space-around; gap: 2%; padding: 0 4%; }
+.s02-chart-bar { width: 8%; background: linear-gradient(to top, #086374, #0ab9ca 60%, #00effc); border: 1px solid #20dbe8; border-bottom: 0; box-shadow: inset 0 0 16px #00eeff38; }
+.s02-chart svg { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.s02-chart-line { fill: none; stroke: #55f8ff; stroke-width: 2.5; vector-effect: non-scaling-stroke; filter: drop-shadow(0 0 5px #00effc99); }
+.s02-chart-point { fill: #d6ffff; stroke: #00effc; stroke-width: 2; }
+.s02-chart-caption { position: absolute; right: 0; bottom: -35px; color: #7fb4bc; font: 700 10px sans-serif; letter-spacing: .18em; }
+.s02-scene-index { position: absolute; bottom: 44px; right: 7vw; color: #7aa9b0; font: 700 12px sans-serif; letter-spacing: .17em; }
+.s02-mobile-break { display: none; }
+.s02-boundary { display: grid; place-items: center; min-height: 36vh; min-height: 36dvh; border-top: 1px solid #134550; background: #02090c; color: #6b9aa4; font: 700 10px 'FTD Section Helvetica', Arial, sans-serif; letter-spacing: .25em; }
+@media (max-width: 900px) {
+  .s02-scene { grid-template-columns: 1fr; grid-template-rows: auto minmax(0, 1fr); align-content: center; gap: clamp(16px, 4vh, 32px); padding: clamp(36px, 6vh, 65px) clamp(20px, 6vw, 60px) 70px; }
+  .s02-copy { align-self: end; }
+  .s02-eyebrow { margin-bottom: clamp(12px, 2vh, 25px); }
+  .s02 h2 { font-size: clamp(32px, 8vw, 66px); }
+  .s02-scene-two h2 { font-size: clamp(30px, 7.3vw, 58px); }
+  .s02-scene-three h2 { font-size: clamp(29px, 7.1vw, 58px); }
+  .s02-copy p { margin-top: 16px; font-size: clamp(13px, 2.8vw, 17px); }
+  .s02-visual { align-self: center; width: min(100%, 540px); }
+  .s02-geo { height: min(37vh, 330px); min-height: 220px; }
+  .s02-system { width: min(100%, 540px); min-height: 230px; }
+  .s02-chart { height: min(34vh, 320px); min-height: 220px; }
+  .s02-scene-index { bottom: 47px; }
+}
+@media (max-width: 520px) {
+  .s02-scene { padding: 31px 20px 64px; gap: 8px; grid-template-rows: auto minmax(0, 1fr); }
+  .s02-eyebrow { font-size: 9px; margin-bottom: 15px; }
+  .s02 h2 { font-size: clamp(23px, 7.4vw, 34px); }
+  .s02-scene-two h2 { font-size: clamp(22px, 7vw, 32px); }
+  .s02-scene-three h2 { font-size: clamp(22px, 7vw, 32px); }
+  .s02-mobile-break { display: block; }
+  .s02-copy p { font-size: 13px; line-height: 1.35; margin-top: 14px; }
+  .s02-visual { align-self: start; margin-top: clamp(42px, 7vh, 75px); }
+  .s02-geo { min-height: 0; height: min(32vh, 250px); padding: 22px; border-radius: 19px; }
+  .s02-geo-header { font-size: 27px; }
+  .s02-geo-footer { left: 22px; right: 22px; bottom: 20px; }
+  .s02-reel { inset: 55px 22px 45px; }
+  .s02-country { font-size: clamp(15px, 4.6vw, 19px); }
+  .s02-system { min-height: 0; aspect-ratio: 1 / 1; max-height: 41vh; }
+  .s02-traffic { width: 39%; height: 23%; font-size: clamp(17px, 5vw, 23px); border-radius: 14px; }
+  .s02-traffic span { font-size: 7px; margin-top: 8px; }
+  .s02-card { width: 40%; padding: 0 8px; font-size: clamp(10px, 3vw, 12px); border-radius: 10px; white-space: nowrap; }
+  .s02-card small { font-size: 8px; }
+  .s02-card-geo, .s02-card-conditions { left: 1%; }
+  .s02-card-brand, .s02-card-execution { right: 1%; }
+  .s02-chart { min-height: 0; height: min(39vh, 290px); }
+  .s02-scene-index { bottom: 39px; right: 20px; font-size: 9px; }
+  .s02-scene-index { display: none; }
+}
+@media (max-height: 610px) and (max-width: 900px) {
+  .s02-scene { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; gap: 15px; padding: 30px 26px 55px; }
+  .s02 h2, .s02-scene-two h2, .s02-scene-three h2 { font-size: clamp(25px, 4vw, 44px); }
+  .s02-copy p { font-size: 12px; }
+  .s02-geo, .s02-chart { height: 55vh; max-height: 310px; }
+  .s02-system { max-height: 60vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .s02-reduced .s02-frame { height: auto; overflow: visible; }
+  .s02-reduced .s02-track { display: block; width: 100%; height: auto; transform: none !important; }
+  .s02-reduced .s02-scene { width: 100%; min-height: 100vh; min-height: 100dvh; height: auto; }
+  .s02-reduced .s02-connection, .s02-reduced .s02-chart-line { stroke-dashoffset: 0 !important; }
+  .s02-reduced .s02-card, .s02-reduced .s02-chart-point { opacity: 1 !important; transform: none !important; }
+  .s02-reduced .s02-chart-bar { transform: none !important; }
+  .s02-reduced .s02-reel { --geo-index: 0 !important; }
+}
+
+/* The statement leads each horizontal scene above its supporting UI. */
+@media (min-width: 901px) {
+  .s02-scene { display: block; padding: clamp(74px, 15vh, 150px) clamp(48px, 6vw, 100px) 70px; }
+  .s02-copy { max-width: none; }
+  .s02-eyebrow { display: flex; align-items: center; gap: 22px; margin-bottom: clamp(30px, 5vh, 58px); font-size: 10px; color: white; letter-spacing: .36em; }
+  .s02-eyebrow b { color: var(--cyan); font: 900 20px/1 'FTD Section Druk', 'Arial Black', sans-serif; letter-spacing: 0; }
+  .s02-eyebrow i { display: block; width: min(22vw, 360px); height: 1px; background: #55848a68; }
+  .s02 h2 { font-size: clamp(52px, 5vw, 86px); line-height: .9; max-width: 1050px; }
+  .s02-scene-two h2, .s02-scene-three h2 { font-size: clamp(51px, 4.8vw, 83px); }
+  .s02-copy p { width: min(520px, 44vw); margin-top: clamp(16px, 2vh, 28px); font-size: clamp(15px, 1.13vw, 18px); line-height: 1.4; }
+  .s02-visual { position: absolute; z-index: 2; }
+  .s02-geo { left: auto; right: 6vw; bottom: 17vh; width: min(46vw, 690px); height: clamp(205px, 26vh, 290px); display: grid; grid-template-columns: 42% 58%; padding: 30px 34px; border-radius: 18px; }
+  .s02-geo-header { display: block; align-self: center; padding-right: 24px; border-right: 1px solid #08b7c1; font-size: clamp(28px, 2.7vw, 39px); }
+  .s02-geo-header small { display: block; margin-top: 9px; color: white; font: 400 clamp(12px, 1vw, 15px)/1.4 'FTD Section Helvetica', Arial, sans-serif; }
+  .s02-reel { inset: 20px 18px 20px 45%; }
+  .s02-geo-footer { display: none; }
+  .s02-country { text-align: left; font-size: clamp(17px, 1.7vw, 24px); transform: translateY(calc((var(--country-index) - var(--geo-index)) * 34px - 50%)); }
+  .s02-system { right: 6vw; bottom: 3vh; width: min(65vw, 800px); height: min(43vh, 470px); min-height: 270px; }
+  .s02-traffic { width: 24%; height: 17%; font-size: clamp(17px, 1.7vw, 26px); border-radius: 13px; }
+  .s02-traffic span { display: none; }
+  .s02-card { width: 22%; height: 16%; border-radius: 13px; font-family: 'FTD Section Helvetica', Arial, sans-serif; font-weight: 700; font-size: clamp(12px, 1.15vw, 17px); }
+  .s02-card-geo { left: 4%; top: 10%; } .s02-card-brand { right: 4%; top: 10%; }
+  .s02-card-conditions { left: 4%; bottom: 10%; } .s02-card-execution { right: 4%; bottom: 10%; }
+  .s02-chart { right: 5vw; bottom: 12vh; width: min(67vw, 850px); height: min(40vh, 390px); }
+  .s02-chart-caption { display: none; }
+  .s02-scene-index { display: none; }
+}
+@media (max-width: 900px) {
+  .s02-eyebrow { display: flex; align-items: center; gap: 12px; letter-spacing: .25em; color: white; }
+  .s02-eyebrow b { color: var(--cyan); font: 900 16px/1 'FTD Section Druk', 'Arial Black', sans-serif; letter-spacing: 0; }
+  .s02-eyebrow i { display: block; width: min(18vw, 100px); height: 1px; background: #55848a68; }
+  .s02-geo { display: grid; grid-template-columns: 40% 60%; }
+  .s02-geo-header { display: block; align-self: center; padding-right: 12px; border-right: 1px solid #08b7c1; }
+  .s02-geo-header small { display: block; margin-top: 8px; color: white; font: 400 12px/1.4 'FTD Section Helvetica', Arial, sans-serif; }
+  .s02-reel { left: 44%; }
+  .s02-country { text-align: left; transform: translateY(calc((var(--country-index) - var(--geo-index)) * 36px - 50%)); }
+  .s02-geo-footer { display: none; }
+}
+
+/* Keep the short introduction separate from the right-side UI. */
+@media (min-width: 901px) {
+  .s02-scene-one .s02-copy p,
+  .s02-scene-three .s02-copy p {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(31vw, 430px);
+    margin: 0;
+    color: #e6f1f3;
+  }
+}
+@media (max-width: 900px) {
+  .s02-scene-one .s02-copy p {
+    color: #edf7f8;
+    background: #010a0dcb;
+    box-shadow: 0 0 18px #010a0dcb;
+  }
+}
+
+/* Final composition: descriptions stay clear of the bright planetary edge. */
+@media (min-width: 901px) {
+  .s02-scene-one .s02-copy p { position:relative;left:auto;right:auto;top:auto;bottom:auto;width:min(520px,38vw);margin-top:clamp(105px,14vh,145px);padding:12px 16px;background:#01090ce8;border-left:2px solid #00effc8a;color:#f0f8f9;box-shadow:0 8px 25px #01090caa }
+  .s02-scene-two .s02-system { right:4vw;bottom:7vh;width:min(55vw,850px);height:min(46vh,470px) }
+  .s02-scene-two .s02-copy p { padding:9px 13px;background:#01090cdb;border-left:2px solid #00effc70;color:#eef7f8 }
+  .s02-scene-two .s02-traffic { width:30%;height:21%;font-size:clamp(21px,2vw,34px);border-color:#16c8d4;box-shadow:0 0 25px #00effc2c,inset 0 0 24px #00effc18 }
+  .s02-scene-two .s02-connection { stroke-width:2.3 }
+  .s02-scene-three .s02-copy p { position:relative;top:auto;right:auto;width:min(380px,30vw);margin-top:26px;padding:10px 14px;background:#01090cf0;border-left:2px solid #00effc70;color:#f0f8f9 }
+}
+
+/* Minimal dark/cyan atmosphere shared by all three scenes. */
+.s02-frame { background:#01090c; }
+.s02-scene {
+  background:
+    radial-gradient(ellipse 50% 45% at 73% 78%,rgba(0,127,151,.16),transparent 78%),
+    linear-gradient(180deg,#01090c 0%,#031017 63%,#01090c 100%);
+}
+.s02-scene-one,.s02-scene-two {
+  background:
+    radial-gradient(ellipse 68% 30% at 50% 100%,rgba(0,156,178,.13),transparent 78%),
+    radial-gradient(ellipse 50% 45% at 73% 78%,rgba(0,127,151,.16),transparent 78%),
+    linear-gradient(180deg,#01090c 0%,#031017 63%,#01090c 100%);
+}
+.s02-scene-bridge { position:relative;display:block;width:100%;height:clamp(68px,10svh,106px);overflow:hidden;background:linear-gradient(180deg,#01090c 0%,#05202a 50%,#01090c 100%);pointer-events:none; }
+.s02-scene-bridge::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 90% at 50% 50%,rgba(0,220,233,.14),transparent 72%); }
+.s02-scene-bridge::after { content:'';position:absolute;top:50%;left:7%;right:7%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,221,235,.6),transparent);box-shadow:0 0 14px rgba(0,221,235,.3); }
+@media(max-width:900px){.s02-scene-bridge{height:58px}.s02-scene-bridge::after{left:9%;right:9%;opacity:.7}}
+.s02-scene::before {
+  height:24%;
+  background:linear-gradient(180deg,rgba(0,8,12,.46),transparent);
+}
+.s02-scene::after {
+  content:'';position:absolute;z-index:1;left:4%;right:4%;bottom:13%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(0,210,228,.12),transparent);
+  pointer-events:none;
+}
+.s02-system { filter:none; }
+.s02-traffic,.s02-card { background:rgba(2,20,28,.88);box-shadow:inset 0 0 16px rgba(0,221,234,.05); }
+.s02-connection { filter:none; }
+.s02-connection-flow { fill:none;stroke:#b6ffff;stroke-width:3;vector-effect:non-scaling-stroke;stroke-linecap:round;opacity:0;filter:drop-shadow(0 0 5px #00effc); }
+.s02-reduced .s02-connection-flow { display:none; }
+
+/* Scene 01: a single holographic GEO phone replaces the wide plaque. */
+.s02-phone {
+  display:block;overflow:hidden;padding:0;border:1px solid rgba(74,229,239,.67);
+  border-radius:24px;background:linear-gradient(155deg,rgba(7,33,42,.92),rgba(2,15,22,.96) 60%,rgba(3,37,47,.88));
+  box-shadow:inset 0 0 0 5px #020e14,inset 0 0 0 6px rgba(53,190,206,.2),0 22px 60px #0008,0 0 27px rgba(0,213,231,.11);
+}
+.s02-phone::before { inset:7px;border-radius:17px;background:linear-gradient(145deg,rgba(190,255,255,.08),transparent 35%); }
+.s02-phone-top { position:absolute;z-index:3;left:25px;right:25px;top:24px;display:flex;align-items:center;justify-content:space-between;color:#c7e6e9;font:700 9px/1 'FTD Section Helvetica',Arial,sans-serif;letter-spacing:.15em; }
+.s02-phone-top i { width:38px;height:3px;border-radius:5px;background:#5fcbd4;opacity:.65; }
+.s02-phone-top small { color:#69acb6;font:inherit; }
+.s02-phone .s02-geo-header { position:absolute;left:28px;right:28px;top:82px;display:block;padding:0;border:0;font-size:clamp(27px,2.6vw,36px); }
+.s02-phone .s02-geo-header small { max-width:24ch;margin-top:9px;color:#c3d9dd;font-size:13px;line-height:1.4; }
+.s02-phone .s02-reel { inset:190px 28px 58px;mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent); }
+.s02-phone .s02-country { font-size:clamp(17px,1.4vw,21px);padding-left:12px;border-left:1px solid transparent; }
+.s02-phone .s02-geo-footer { display:flex;left:28px;right:28px;bottom:27px;justify-content:space-between;color:#74b9c2; }
+@media(min-width:901px){
+  .s02-phone { position:absolute;top:18%;right:5.5vw;bottom:auto;width:clamp(270px,25vw,400px);height:clamp(385px,54vh,520px);transform:perspective(1200px) rotateY(-6deg); }
+}
+@media(max-width:900px){
+  .s02-phone { position:relative;top:auto;right:auto;bottom:auto;justify-self:center;align-self:center;width:min(73vw,310px);height:min(44vh,370px);min-height:245px;margin:0;transform:none; }
+  .s02-phone .s02-geo-header { top:54px;left:22px;right:22px;font-size:25px; }
+  .s02-phone .s02-geo-header small { font-size:11px;margin-top:6px; }
+  .s02-phone-top { top:17px;left:22px;right:22px;font-size:8px; }
+  .s02-phone .s02-reel { inset:120px 22px 45px; }
+  .s02-phone .s02-geo-footer { left:22px;right:22px;bottom:19px;font-size:8px; }
+  .s02-phone .s02-country { font-size:15px; }
+}
+@media(max-width:900px) and (max-height:610px){
+  .s02-phone { width:min(38vw,290px);height:min(64vh,340px);min-height:0; }
+  .s02-phone .s02-reel { inset:110px 20px 38px; }
+}
+
+/* Scene 03 returns to the earlier transparent plotting treatment. */
+.s02-chart { background:transparent;border-radius:0;box-shadow:none; }
+.s02-chart-grid { background:repeating-linear-gradient(to top,rgba(77,193,207,.10) 0 1px,transparent 1px 25%); }
+.s02-chart-bar { background:linear-gradient(to top,rgba(0,108,124,.26),rgba(0,206,223,.50) 72%,rgba(45,231,243,.70));border-color:rgba(53,226,239,.52);box-shadow:none; }
+.s02-chart-line { filter:drop-shadow(0 0 3px rgba(0,239,252,.35)); }
+.s02-scene-three .s02-copy p { background:rgba(0,12,18,.77); }
+@media (max-width: 900px) {
+  .s02-scene-three .s02-copy p { background:#01090cd9;box-shadow:0 0 20px #01090cc9;padding:6px 8px;border-left:2px solid #00effc70 }
+}
+@media (max-width: 520px) {
+  .s02-scene { padding-top:75px; }
+  .s02-scene-one .s02-copy p { padding:5px 7px;border-left:2px solid #00effc70 }
+}
+.s02-reel:not([style]) .s02-country:first-child { color:var(--cyan);opacity:1;text-shadow:0 0 18px #00effc5c }
+
+/* Desktop scenes occupy ordinary document flow. The original art still uses
+   each scene's box as its composition canvas. */
+@media (min-width: 901px) {
+  .s02-native .s02-frame { height: auto; overflow: visible; }
+  .s02-native .s02-track { display: block; width: 100%; height: auto; transform: none !important; will-change: auto; }
+  .s02-native .s02-scene { width: 100%; height: auto; min-height: max(100svh, 700px); overflow: visible; }
+  .s02-native .s02-scene-two .s02-copy p { width: min(520px, 35vw); }
+}

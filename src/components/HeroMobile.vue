@@ -24,6 +24,7 @@ defineEmits<{ cta: [audience: 'affiliate' | 'advertiser']; menu: [event: MouseEv
       <span v-fit class="fit-box line-two cyan" data-intro="headline"><span class="fit-copy">INTO RESULTS.</span></span>
       <span v-fit class="fit-box line-three" data-intro="headline"><span class="fit-copy">WE HANDLE THE REST</span></span>
     </h1>
+    <p class="hero-description" data-intro="copy">{{ copy.hero.description }}</p>
     <HeroCta uppercase :affiliate-href="affiliateHref" :advertiser-href="advertiserHref" @cta="$emit('cta', $event)" />
     <div class="mobile-details">
       <div class="network-note" data-intro="copy">

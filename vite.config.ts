@@ -2,17 +2,24 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { cpSync, existsSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+
+const productionOrigin = 'https://ftdlab.net'
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-  const base = env.VITE_BASE_PATH || './'
   const siteEnv = env.VITE_SITE_ENV || 'preview'
+  if (!['preview', 'staging', 'production'].includes(siteEnv)) throw new Error('VITE_SITE_ENV must be preview, staging, or production')
+  const base = env.VITE_BASE_PATH || (siteEnv === 'production' ? '/' : './')
   const configuredOrigin = env.VITE_PUBLIC_ORIGIN?.trim() || ''
-  if (siteEnv === 'production' && !configuredOrigin) throw new Error('VITE_PUBLIC_ORIGIN is required for production builds')
+  if (siteEnv === 'production' && !configuredOrigin) throw new Error(`VITE_PUBLIC_ORIGIN=${productionOrigin} is required for production builds`)
   let publicOrigin = ''
   if (configuredOrigin) {
     const url = new URL(configuredOrigin)
     if (url.protocol !== 'https:' || url.username || url.password || url.search || url.hash) throw new Error('VITE_PUBLIC_ORIGIN must be a clean HTTPS site URL')
     publicOrigin = url.toString().replace(/\/+$/, '')
+  }
+  if (siteEnv === 'production' && (publicOrigin !== productionOrigin || base !== '/')) {
+    throw new Error(`Production requires VITE_PUBLIC_ORIGIN=${productionOrigin} and VITE_BASE_PATH=/`)
   }
   const canonical = publicOrigin ? `${publicOrigin}/` : ''
   const staging = siteEnv !== 'production'
@@ -51,9 +58,14 @@ export default defineConfig(({ mode }) => {
   }, {
     name: 'copy-hero-assets',
     closeBundle() {
-      for (const folder of ['assets', 'references', 'docs']) {
+      const folders = siteEnv === 'preview' ? ['assets', 'references', 'docs'] : ['assets']
+      for (const folder of folders) {
         const source = resolve(folder)
-        if (existsSync(source)) cpSync(source, resolve('dist', folder), { recursive: true })
+        if (existsSync(source)) cpSync(source, resolve('dist', folder), {
+          recursive: true,
+          // Audit handoff is source documentation, not a public website asset.
+          filter: path => !/(?:SEO_AUDIT_PRODUCTION_READINESS|FTDLAB_NET_CLOUDFLARE_PRODUCTION_READINESS)\.md$/.test(path),
+        })
       }
       writeFileSync(resolve('dist', 'robots.txt'), `User-agent: *\nAllow: /\n${staging ? '' : `Sitemap: ${canonical}sitemap.xml\n`}`)
       if (!staging) writeFileSync(resolve('dist', 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${canonical}</loc></url></urlset>\n`)

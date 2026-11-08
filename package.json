@@ -12,7 +12,10 @@
     "qa:responsive": "node scripts/responsive-qa.mjs",
     "qa:motion": "node scripts/motion-qa.mjs",
     "qa:compare": "node scripts/compare-visuals.mjs",
-    "qa:production": "node scripts/production-qa.mjs"
+    "qa:production": "node scripts/production-qa.mjs",
+    "qa:seo:config": "node scripts/seo-config-qa.mjs",
+    "qa:seo:files": "node scripts/seo-qa.mjs",
+    "qa:seo:browser": "node scripts/seo-browser-qa.mjs"
   },
   "dependencies": {
     "gsap": "3.13.0",

@@ -29,6 +29,7 @@
       #ftd-boot.ftd-boot--failed .ftd-boot__failure{display:block}
       @media(max-width:767px){.ftd-boot__brand{font-size:clamp(64px,19vw,76px)}}
       @media(prefers-reduced-motion:reduce){#ftd-boot{transition:none}}
+      @media(pointer:fine) and (hover:hover) and (prefers-reduced-motion:no-preference){#ftd-boot:not(.ftd-boot--failed),#ftd-boot:not(.ftd-boot--failed) *{cursor:none!important}}
     </style>
   </head>
   <body>
